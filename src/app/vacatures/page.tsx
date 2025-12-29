@@ -175,28 +175,13 @@ export default function VacaturesPage() {
                                         <div style={{
                                             display: 'flex',
                                             alignItems: 'center',
-                                            justifyContent: 'space-between',
+                                            justifyContent: 'flex-end',
                                             paddingTop: '0.75rem',
                                             borderTop: '1px solid #e5e7eb',
                                         }}>
                                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                                <div style={{
-                                                    width: '32px',
-                                                    height: '32px',
-                                                    background: '#e5e7eb',
-                                                    borderRadius: '0.375rem',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                }}>
-                                                    <Building2 size={16} color="#6b7280" />
-                                                </div>
-                                                <div>
-                                                    <div style={{ fontSize: '0.875rem', fontWeight: '500', color: '#1f2937' }}>
-                                                        {vacature.bureauNaam}
-                                                    </div>
-                                                    <Rating rating={vacature.bureauRating} size={12} />
-                                                </div>
+                                                <span style={{ fontSize: '0.75rem', color: '#6b7280' }}>Beoordeling aanbieder:</span>
+                                                <Rating rating={vacature.bureauRating} size={12} />
                                             </div>
                                         </div>
                                     </Link>

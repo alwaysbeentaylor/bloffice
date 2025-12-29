@@ -290,7 +290,7 @@ export default function ProfielPage() {
                                         <div key={review.id} style={{ paddingBottom: '1rem', borderBottom: '1px solid #e5e7eb' }}>
                                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                                                 <div style={{ fontWeight: '500', color: '#1f2937', fontSize: '0.9rem' }}>
-                                                    {review.reviewerBureauNaam}
+                                                    Bureau (anoniem)
                                                 </div>
                                                 <Rating rating={review.rating} showNumber={false} size={12} />
                                             </div>

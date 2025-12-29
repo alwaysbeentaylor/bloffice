@@ -169,7 +169,7 @@ export default function KandidaatDetailPage({ params }: { params: Promise<{ id: 
                                 </div>
                                 <div>
                                     <h4 style={{ fontWeight: '600', color: '#1f2937', marginBottom: '0.25rem' }}>
-                                        {kandidaat.bureauNaam}
+                                        De aanbieder
                                     </h4>
                                     <Rating rating={kandidaat.bureauRating} size={14} />
                                 </div>
@@ -195,7 +195,7 @@ export default function KandidaatDetailPage({ params }: { params: Promise<{ id: 
                                 Interesse in deze kandidaat?
                             </h3>
                             <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>
-                                Neem contact op met {kandidaat.bureauNaam} om deze kandidaat te bespreken.
+                                Neem contact op met de aanbieder om deze kandidaat te bespreken.
                             </p>
                             <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>
                                 Voorkeurscontact: <strong>{kandidaat.contactVoorkeur === 'beide' ? 'Telefoon of e-mail' : kandidaat.contactVoorkeur === 'telefoon' ? 'Telefoon' : 'E-mail'}</strong>

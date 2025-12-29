@@ -134,7 +134,7 @@ export default async function VacatureDetailPage({ params }: PageProps) {
                                 </div>
                                 <div>
                                     <h3 style={{ fontWeight: '600', color: '#1f2937', marginBottom: '0.25rem' }}>
-                                        {vacature.bureauNaam}
+                                        De aanbieder
                                     </h3>
                                     {bureau?.geverifieerd && (
                                         <span className="verified-badge">
