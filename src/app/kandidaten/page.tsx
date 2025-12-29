@@ -311,11 +311,31 @@ export default function KandidatenPage() {
                     background: white;
                     border: 1px solid #e2e8f0;
                     border-radius: 0.5rem;
-                    overflow: hidden;
+                    overflow-x: auto;
+                    overflow-y: visible;
+                }
+
+                .table-container::-webkit-scrollbar {
+                    height: 8px;
+                }
+
+                .table-container::-webkit-scrollbar-track {
+                    background: #f1f5f9;
+                    border-radius: 4px;
+                }
+
+                .table-container::-webkit-scrollbar-thumb {
+                    background: #cbd5e1;
+                    border-radius: 4px;
+                }
+
+                .table-container::-webkit-scrollbar-thumb:hover {
+                    background: #94a3b8;
                 }
 
                 .data-table {
                     width: 100%;
+                    min-width: 1200px;
                     border-collapse: collapse;
                     font-size: 0.8125rem;
                 }
