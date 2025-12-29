@@ -59,6 +59,25 @@ export interface Vacature {
   actief: boolean;
 }
 
+export interface Kandidaat {
+  id: string;
+  bureauId: string;
+  bureauNaam: string;
+  bureauRating: number;
+  naam: string;
+  functie: string;
+  categorie: Specialisatie;
+  locatie: string;
+  beschikbaarheid: 'direct' | 'binnen 2 weken' | 'in overleg';
+  ervaring: string;
+  samenvatting: string;
+  uurtarief: number;
+  commissieVoorstel: string;
+  contactVoorkeur: 'telefoon' | 'email' | 'beide';
+  geplaatst: string;
+  actief: boolean;
+}
+
 // 12 Bureaus met realistische Nederlandse namen
 export const bureaus: Bureau[] = [
   {
@@ -642,6 +661,254 @@ Ervaring met SAP en Excel op gevorderd niveau vereist. Je rapporteert direct aan
   },
 ];
 
+// Kandidaten beschikbaar voor plaatsing
+export const kandidaten: Kandidaat[] = [
+  {
+    id: 'k1',
+    bureauId: 'b1',
+    bureauNaam: 'TechForce Uitzendbureau',
+    bureauRating: 4.8,
+    naam: 'Pieter Janssen',
+    functie: 'Full Stack Developer',
+    categorie: 'ICT',
+    locatie: 'Amsterdam',
+    beschikbaarheid: 'direct',
+    ervaring: '6 jaar',
+    samenvatting: `Ervaren Full Stack Developer met sterke kennis van React, Node.js en TypeScript. Heeft gewerkt aan diverse enterprise applicaties in de financiële sector.
+
+Technische skills:
+- Frontend: React, Vue.js, TypeScript
+- Backend: Node.js, Python, Java
+- Databases: PostgreSQL, MongoDB
+- Cloud: AWS, Azure
+
+Zoekt een uitdagende positie bij een innovatief bedrijf.`,
+    uurtarief: 85,
+    commissieVoorstel: '18% van eerste 3 maanden',
+    contactVoorkeur: 'beide',
+    geplaatst: '2024-12-20',
+    actief: true,
+  },
+  {
+    id: 'k2',
+    bureauId: 'b6',
+    bureauNaam: 'ZorgSelect',
+    bureauRating: 4.9,
+    naam: 'Fatima El Amrani',
+    functie: 'Verpleegkundige Niveau 5',
+    categorie: 'Zorg',
+    locatie: 'Rotterdam',
+    beschikbaarheid: 'binnen 2 weken',
+    ervaring: '8 jaar',
+    samenvatting: `Gediplomeerde verpleegkundige niveau 5 met ruime ervaring in de ouderenzorg en acute zorg. BIG-geregistreerd en in bezit van diverse aanvullende certificaten.
+
+Ervaring met:
+- Geriatrische zorg
+- Palliatieve zorg
+- Medicatiebeleid
+- ECD systemen
+
+Flexibel inzetbaar en bereid tot avond- en weekenddiensten.`,
+    uurtarief: 45,
+    commissieVoorstel: '15% van eerste 3 maanden',
+    contactVoorkeur: 'telefoon',
+    geplaatst: '2024-12-22',
+    actief: true,
+  },
+  {
+    id: 'k3',
+    bureauId: 'b4',
+    bureauNaam: 'LogiPeople',
+    bureauRating: 4.3,
+    naam: 'Stefan de Boer',
+    functie: 'Supply Chain Manager',
+    categorie: 'Logistiek',
+    locatie: 'Eindhoven',
+    beschikbaarheid: 'direct',
+    ervaring: '10 jaar',
+    samenvatting: `Senior Supply Chain Manager met bewezen track record in het optimaliseren van logistieke processen. Ervaring met internationale supply chains en Lean/Six Sigma gecertificeerd.
+
+Competenties:
+- End-to-end supply chain management
+- Vendor management
+- Kostenoptimalisatie
+- SAP MM/WM expertise`,
+    uurtarief: 95,
+    commissieVoorstel: '20% van eerste 2 maanden',
+    contactVoorkeur: 'email',
+    geplaatst: '2024-12-18',
+    actief: true,
+  },
+  {
+    id: 'k4',
+    bureauId: 'b3',
+    bureauNaam: 'HorecaConnect',
+    bureauRating: 4.7,
+    naam: 'Marco Visser',
+    functie: 'Executive Chef',
+    categorie: 'Horeca',
+    locatie: 'Den Haag',
+    beschikbaarheid: 'in overleg',
+    ervaring: '15 jaar',
+    samenvatting: `Creatieve Executive Chef met Michelin-ervaring. Gespecialiseerd in Franse en mediterrane keuken met een moderne twist.
+
+Hoogtepunten:
+- 3 jaar werkzaam in Michelin-sterrestaurant
+- Winnaar Dutch Chef Award 2021
+- Ervaring met keukenmanagement tot 20 personen
+- Expertise in menu-ontwikkeling en food cost control`,
+    uurtarief: 65,
+    commissieVoorstel: '22% van eerste 3 maanden',
+    contactVoorkeur: 'telefoon',
+    geplaatst: '2024-12-15',
+    actief: true,
+  },
+  {
+    id: 'k5',
+    bureauId: 'b5',
+    bureauNaam: 'BouwKracht Personeelsdiensten',
+    bureauRating: 4.6,
+    naam: 'Henk van der Linden',
+    functie: 'Projectleider Bouw',
+    categorie: 'Bouw',
+    locatie: 'Utrecht',
+    beschikbaarheid: 'binnen 2 weken',
+    ervaring: '12 jaar',
+    samenvatting: `Ervaren projectleider met expertise in woningbouw en utiliteitsbouw. Sterk in het aansturen van bouwteams en onderaannemers.
+
+Kwalificaties:
+- VCA VOL gecertificeerd
+- Ervaring met projecten tot €50 miljoen
+- Goede kennis van bouwregelgeving
+- Rijbewijs B en eigen vervoer`,
+    uurtarief: 75,
+    commissieVoorstel: '18% van eerste 3 maanden',
+    contactVoorkeur: 'beide',
+    geplaatst: '2024-12-21',
+    actief: true,
+  },
+  {
+    id: 'k6',
+    bureauId: 'b2',
+    bureauNaam: 'SecuriStaff BV',
+    bureauRating: 4.5,
+    naam: 'Mohammed Yilmaz',
+    functie: 'Security Manager',
+    categorie: 'Beveiliging',
+    locatie: 'Schiphol',
+    beschikbaarheid: 'direct',
+    ervaring: '9 jaar',
+    samenvatting: `Security Manager met uitgebreide ervaring in luchthavenbeveliging en evenementenbeveiliging. Erkend beveiligingsexpert met sterke leidinggevende kwaliteiten.
+
+Certificeringen:
+- Beveiligingsdiploma niveau 4
+- EHBO/BHV gecertificeerd
+- Screened voor Schiphol
+- Ervaring met 50+ medewerkers`,
+    uurtarief: 55,
+    commissieVoorstel: '15% van eerste 2 maanden',
+    contactVoorkeur: 'telefoon',
+    geplaatst: '2024-12-23',
+    actief: true,
+  },
+  {
+    id: 'k7',
+    bureauId: 'b7',
+    bureauNaam: 'Office Professionals',
+    bureauRating: 4.4,
+    naam: 'Linda de Graaf',
+    functie: 'Financial Controller',
+    categorie: 'Financieel',
+    locatie: 'Amsterdam',
+    beschikbaarheid: 'binnen 2 weken',
+    ervaring: '7 jaar',
+    samenvatting: `Financial Controller met RA-titel en ervaring in multinationale omgevingen. Sterk in maandafsluitingen, consolidaties en IFRS-rapportage.
+
+Expertise:
+- Maand- en jaarafsluitingen
+- Budget en forecast
+- SAP FI/CO en Oracle Financials
+- IFRS en Dutch GAAP`,
+    uurtarief: 90,
+    commissieVoorstel: '20% van eerste 3 maanden',
+    contactVoorkeur: 'email',
+    geplaatst: '2024-12-19',
+    actief: true,
+  },
+  {
+    id: 'k8',
+    bureauId: 'b9',
+    bureauNaam: 'RetailStaf',
+    bureauRating: 4.5,
+    naam: 'Sophie Bakker',
+    functie: 'Retail Operations Manager',
+    categorie: 'Retail',
+    locatie: 'Rotterdam',
+    beschikbaarheid: 'direct',
+    ervaring: '8 jaar',
+    samenvatting: `Retail Operations Manager met ervaring bij grote modeketen. Sterk in het verbeteren van winkelprocessen en aansturen van winkelteams.
+
+Resultaten:
+- 25% verbetering in klanttevredenheid
+- Succesvolle openingen van 5 nieuwe winkels
+- Ervaring met teams tot 100 medewerkers
+- Expertise in visual merchandising`,
+    uurtarief: 60,
+    commissieVoorstel: '18% van eerste 2 maanden',
+    contactVoorkeur: 'beide',
+    geplaatst: '2024-12-24',
+    actief: true,
+  },
+  {
+    id: 'k9',
+    bureauId: 'b12',
+    bureauNaam: 'TransportTalent',
+    bureauRating: 4.4,
+    naam: 'Jan Smits',
+    functie: 'Transport Planner',
+    categorie: 'Transport',
+    locatie: 'Venlo',
+    beschikbaarheid: 'direct',
+    ervaring: '5 jaar',
+    samenvatting: `Transport Planner met ervaring in internationaal wegtransport. Expert in routeoptimalisatie en real-time planning.
+
+Skills:
+- TMS systemen (Transporeon, Timocom)
+- Ritplanning en optimalisatie
+- ADR kennis
+- Duits en Engels sprekend`,
+    uurtarief: 45,
+    commissieVoorstel: '15% van eerste 3 maanden',
+    contactVoorkeur: 'telefoon',
+    geplaatst: '2024-12-25',
+    actief: true,
+  },
+  {
+    id: 'k10',
+    bureauId: 'b10',
+    bureauNaam: 'IndustriePro',
+    bureauRating: 4.1,
+    naam: 'Erik Vermeulen',
+    functie: 'Productie Manager',
+    categorie: 'Industrie',
+    locatie: 'Helmond',
+    beschikbaarheid: 'in overleg',
+    ervaring: '11 jaar',
+    samenvatting: `Productie Manager met lean manufacturing achtergrond. Ervaring in automotive en metaalindustrie.
+
+Competenties:
+- Lean Six Sigma Black Belt
+- TPM implementatie
+- Team management 80+ FTE
+- Continu verbeteren en Kaizen`,
+    uurtarief: 70,
+    commissieVoorstel: '20% van eerste 2 maanden',
+    contactVoorkeur: 'beide',
+    geplaatst: '2024-12-17',
+    actief: true,
+  },
+];
+
 // Reviews voor bureaus
 export const reviews: Review[] = [
   {
@@ -766,5 +1033,14 @@ export function getReviewsByBureauId(bureauId: string): Review[] {
   return reviews.filter((r) => r.bureauId === bureauId);
 }
 
+export function getKandidaatById(id: string): Kandidaat | undefined {
+  return kandidaten.find((k) => k.id === id);
+}
+
+export function getKandidatenByBureauId(bureauId: string): Kandidaat[] {
+  return kandidaten.filter((k) => k.bureauId === bureauId);
+}
+
 // Huidige ingelogde bureau (voor demo)
 export const currentBureau: Bureau = bureaus[0]; // TechForce Uitzendbureau
+

@@ -209,14 +209,6 @@ export default async function VacatureDetailPage({ params }: PageProps) {
                             <button className="btn btn-primary" style={{ width: '100%', marginTop: '1.5rem' }}>
                                 Neem contact op
                             </button>
-
-                            <Link
-                                href={`/bureaus/${vacature.bureauId}`}
-                                className="btn btn-outline"
-                                style={{ width: '100%', marginTop: '0.75rem', textAlign: 'center' }}
-                            >
-                                Bekijk bureau profiel
-                            </Link>
                         </div>
                     </aside>
                 </div>

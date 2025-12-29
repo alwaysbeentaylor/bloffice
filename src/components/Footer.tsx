@@ -37,7 +37,7 @@ export default function Footer() {
                         <h4 style={{ fontWeight: '600', marginBottom: '1rem' }}>Platform</h4>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                             <li><Link href="/vacatures">Vacatures</Link></li>
-                            <li><Link href="/bureaus">Bureaus</Link></li>
+                            <li><Link href="/kandidaten">Kandidaten</Link></li>
                             <li><Link href="/dashboard">Dashboard</Link></li>
                         </ul>
                     </div>

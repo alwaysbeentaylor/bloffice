@@ -1,10 +1,12 @@
 import Link from 'next/link';
-import { Briefcase, MessageSquare, Handshake, Plus, ArrowRight, TrendingUp } from 'lucide-react';
-import { currentBureau, getVacaturesByBureauId } from '@/lib/data';
+import { Briefcase, MessageSquare, Handshake, Plus, ArrowRight, TrendingUp, User } from 'lucide-react';
+import { currentBureau, getVacaturesByBureauId, getKandidatenByBureauId } from '@/lib/data';
 
 export default function DashboardPage() {
     const myVacatures = getVacaturesByBureauId(currentBureau.id);
     const recentVacatures = myVacatures.slice(0, 3);
+    const myKandidaten = getKandidatenByBureauId(currentBureau.id);
+    const recentKandidaten = myKandidaten.slice(0, 3);
 
     return (
         <div style={{ minHeight: '100vh', background: '#f9fafb' }}>
@@ -15,7 +17,7 @@ export default function DashboardPage() {
                         Welkom terug, {currentBureau.naam}
                     </h1>
                     <p style={{ color: '#6b7280' }}>
-                        Bekijk je statistieken en beheer je vacatures
+                        Bekijk je statistieken en beheer je vacatures & kandidaten
                     </p>
                 </div>
             </div>
@@ -43,6 +45,23 @@ export default function DashboardPage() {
                         </div>
                         <div className="stat-value">{currentBureau.aantalVacatures}</div>
                         <div className="stat-label">Actieve vacatures</div>
+                    </div>
+
+                    <div className="stat-card">
+                        <div style={{
+                            width: '48px',
+                            height: '48px',
+                            background: 'rgba(59, 130, 246, 0.1)',
+                            borderRadius: '0.75rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            margin: '0 auto 1rem',
+                        }}>
+                            <User size={24} color="#3b82f6" />
+                        </div>
+                        <div className="stat-value" style={{ color: '#3b82f6' }}>{myKandidaten.length}</div>
+                        <div className="stat-label">Actieve kandidaten</div>
                     </div>
 
                     <div className="stat-card">
@@ -159,6 +178,66 @@ export default function DashboardPage() {
                             </h3>
                             <p style={{ fontSize: '0.875rem', color: '#6b7280', margin: 0 }}>
                                 Ontdek vacatures van andere bureaus
+                            </p>
+                        </div>
+                        <ArrowRight size={20} style={{ marginLeft: 'auto', color: '#9ca3af' }} />
+                    </Link>
+
+                    <Link href="/kandidaten/nieuw" className="card" style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1rem',
+                        textDecoration: 'none',
+                        color: 'inherit',
+                    }}>
+                        <div style={{
+                            width: '48px',
+                            height: '48px',
+                            background: '#3b82f6',
+                            borderRadius: '0.75rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                        }}>
+                            <User size={24} color="white" />
+                        </div>
+                        <div>
+                            <h3 style={{ fontWeight: '600', color: '#1f2937', marginBottom: '0.25rem' }}>
+                                Nieuwe kandidaat plaatsen
+                            </h3>
+                            <p style={{ fontSize: '0.875rem', color: '#6b7280', margin: 0 }}>
+                                Deel een kandidaat met andere bureaus
+                            </p>
+                        </div>
+                        <ArrowRight size={20} style={{ marginLeft: 'auto', color: '#9ca3af' }} />
+                    </Link>
+
+                    <Link href="/kandidaten" className="card" style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1rem',
+                        textDecoration: 'none',
+                        color: 'inherit',
+                    }}>
+                        <div style={{
+                            width: '48px',
+                            height: '48px',
+                            background: 'rgba(59, 130, 246, 0.1)',
+                            borderRadius: '0.75rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                        }}>
+                            <User size={24} color="#3b82f6" />
+                        </div>
+                        <div>
+                            <h3 style={{ fontWeight: '600', color: '#1f2937', marginBottom: '0.25rem' }}>
+                                Kandidaten bekijken
+                            </h3>
+                            <p style={{ fontSize: '0.875rem', color: '#6b7280', margin: 0 }}>
+                                Ontdek kandidaten van andere bureaus
                             </p>
                         </div>
                         <ArrowRight size={20} style={{ marginLeft: 'auto', color: '#9ca3af' }} />

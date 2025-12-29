@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Building2, Upload, Mail, Phone, Save, Star } from 'lucide-react';
-import { currentBureau, getVacaturesByBureauId, getReviewsByBureauId, specialisaties } from '@/lib/data';
+import { Building2, Upload, Mail, Phone, Save, Star, User } from 'lucide-react';
+import { currentBureau, getVacaturesByBureauId, getReviewsByBureauId, getKandidatenByBureauId, specialisaties } from '@/lib/data';
 import Rating from '@/components/Rating';
 
 export default function ProfielPage() {
@@ -18,6 +18,7 @@ export default function ProfielPage() {
 
     const myVacatures = getVacaturesByBureauId(currentBureau.id);
     const myReviews = getReviewsByBureauId(currentBureau.id);
+    const myKandidaten = getKandidatenByBureauId(currentBureau.id);
 
     const toggleSpecialisatie = (spec: string) => {
         setFormData(prev => ({
@@ -214,6 +215,65 @@ export default function ProfielPage() {
                             ) : (
                                 <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>
                                     Je hebt nog geen vacatures geplaatst.
+                                </p>
+                            )}
+                        </div>
+
+                        {/* My Kandidaten */}
+                        <div className="sidebar-box" style={{ marginBottom: '1.5rem' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                                <h3 style={{ fontWeight: '600', color: '#1f2937' }}>
+                                    Mijn kandidaten ({myKandidaten.length})
+                                </h3>
+                                <Link href="/kandidaten/nieuw" style={{ fontSize: '0.875rem', color: '#3b82f6', textDecoration: 'none' }}>
+                                    + Nieuw
+                                </Link>
+                            </div>
+
+                            {myKandidaten.length > 0 ? (
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                    {myKandidaten.map(k => (
+                                        <Link
+                                            key={k.id}
+                                            href={`/kandidaten/${k.id}`}
+                                            style={{
+                                                padding: '0.75rem',
+                                                background: '#f9fafb',
+                                                borderRadius: '0.5rem',
+                                                textDecoration: 'none',
+                                                color: 'inherit',
+                                            }}
+                                        >
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                                    <div style={{
+                                                        width: '32px',
+                                                        height: '32px',
+                                                        background: '#e5e7eb',
+                                                        borderRadius: '50%',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                    }}>
+                                                        <User size={16} color="#6b7280" />
+                                                    </div>
+                                                    <div>
+                                                        <div style={{ fontWeight: '500', color: '#1f2937', fontSize: '0.9rem' }}>
+                                                            {k.naam}
+                                                        </div>
+                                                        <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>
+                                                            {k.functie}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span className="badge badge-success" style={{ fontSize: '0.7rem' }}>Actief</span>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>
+                                    Je hebt nog geen kandidaten geplaatst.
                                 </p>
                             )}
                         </div>

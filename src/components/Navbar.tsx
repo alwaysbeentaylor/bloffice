@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Briefcase, Building2, User, LogOut, Menu, X } from 'lucide-react';
+import { Briefcase, User, LogOut, Menu, X, Users } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -12,7 +12,7 @@ export default function Navbar() {
     // Check if we're on a "logged in" page
     const isLoggedIn = pathname.startsWith('/dashboard') ||
         pathname.startsWith('/vacatures') ||
-        pathname.startsWith('/bureaus') ||
+        pathname.startsWith('/kandidaten') ||
         pathname.startsWith('/profiel') ||
         pathname.startsWith('/admin');
 
@@ -44,16 +44,16 @@ export default function Navbar() {
                         </span>
                     </Link>
                     <Link
-                        href="/bureaus"
+                        href="/kandidaten"
                         className="navbar-link"
                         style={{
-                            color: pathname.startsWith('/bureaus') ? '#1e3a5f' : undefined,
-                            fontWeight: pathname.startsWith('/bureaus') ? '600' : undefined
+                            color: pathname.startsWith('/kandidaten') ? '#1e3a5f' : undefined,
+                            fontWeight: pathname.startsWith('/kandidaten') ? '600' : undefined
                         }}
                     >
                         <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <Building2 size={18} />
-                            Bureaus
+                            <Users size={18} />
+                            Kandidaten
                         </span>
                     </Link>
                     <Link
@@ -110,8 +110,8 @@ export default function Navbar() {
                     <Link href="/vacatures" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
                         Vacatures
                     </Link>
-                    <Link href="/bureaus" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
-                        Bureaus
+                    <Link href="/kandidaten" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
+                        Kandidaten
                     </Link>
                     <Link href="/profiel" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
                         Mijn Profiel
