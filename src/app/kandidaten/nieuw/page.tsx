@@ -5,14 +5,21 @@ import Link from 'next/link';
 import { ArrowLeft, Save, User } from 'lucide-react';
 import { specialisaties, locaties } from '@/lib/data';
 
+// Regios
+const regios = ['Noord-Holland', 'Zuid-Holland', 'Utrecht', 'Noord-Brabant', 'Limburg', 'Gelderland', 'Overijssel', 'Friesland', 'Groningen', 'Drenthe', 'Zeeland', 'Flevoland'];
+
 export default function NieuweKandidaatPage() {
     const [formData, setFormData] = useState({
-        naam: '',
         functie: '',
         categorie: '',
-        locatie: '',
+        regio: '',
         beschikbaarheid: 'direct',
+        beschikbaarPer: '',
         ervaring: '',
+        ervaringJaren: '',
+        maxReistijd: '45',
+        gewensteFuncties: '',
+        contractvorm: 'fulltime',
         samenvatting: '',
         uurtarief: '',
         commissieVoorstel: '',
@@ -76,7 +83,7 @@ export default function NieuweKandidaatPage() {
                     </Link>
                     <h1>Nieuwe kandidaat plaatsen</h1>
                     <p style={{ color: '#6b7280', marginTop: '0.25rem' }}>
-                        Deel een beschikbare kandidaat met andere uitzendbureaus
+                        Deel een beschikbare kandidaat met andere uitzendbureaus (anoniem)
                     </p>
                 </div>
             </div>
@@ -91,17 +98,6 @@ export default function NieuweKandidaatPage() {
                         <div style={{ display: 'grid', gap: '1rem' }}>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                                 <div>
-                                    <label className="label">Naam kandidaat *</label>
-                                    <input
-                                        type="text"
-                                        className="input"
-                                        placeholder="Volledige naam"
-                                        value={formData.naam}
-                                        onChange={(e) => setFormData({ ...formData, naam: e.target.value })}
-                                        required
-                                    />
-                                </div>
-                                <div>
                                     <label className="label">Functie / Rol *</label>
                                     <input
                                         type="text"
@@ -112,40 +108,56 @@ export default function NieuweKandidaatPage() {
                                         required
                                     />
                                 </div>
-                            </div>
-
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                                 <div>
-                                    <label className="label">Specialisatie *</label>
+                                    <label className="label">Sector *</label>
                                     <select
                                         className="input"
                                         value={formData.categorie}
                                         onChange={(e) => setFormData({ ...formData, categorie: e.target.value })}
                                         required
                                     >
-                                        <option value="">Selecteer specialisatie</option>
+                                        <option value="">Selecteer sector</option>
                                         {specialisaties.map(spec => (
                                             <option key={spec} value={spec}>{spec}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label className="label">Locatie / Regio *</label>
-                                    <select
-                                        className="input"
-                                        value={formData.locatie}
-                                        onChange={(e) => setFormData({ ...formData, locatie: e.target.value })}
-                                        required
-                                    >
-                                        <option value="">Selecteer locatie</option>
-                                        {locaties.map(loc => (
-                                            <option key={loc} value={loc}>{loc}</option>
                                         ))}
                                     </select>
                                 </div>
                             </div>
 
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                <div>
+                                    <label className="label">Regio *</label>
+                                    <select
+                                        className="input"
+                                        value={formData.regio}
+                                        onChange={(e) => setFormData({ ...formData, regio: e.target.value })}
+                                        required
+                                    >
+                                        <option value="">Selecteer regio</option>
+                                        {regios.map(regio => (
+                                            <option key={regio} value={regio}>{regio}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="label">Max reistijd (minuten) *</label>
+                                    <select
+                                        className="input"
+                                        value={formData.maxReistijd}
+                                        onChange={(e) => setFormData({ ...formData, maxReistijd: e.target.value })}
+                                        required
+                                    >
+                                        <option value="15">15 minuten</option>
+                                        <option value="30">30 minuten</option>
+                                        <option value="45">45 minuten</option>
+                                        <option value="60">60 minuten</option>
+                                        <option value="90">90 minuten</option>
+                                        <option value="120">120+ minuten</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
                                 <div>
                                     <label className="label">Beschikbaarheid *</label>
                                     <select
@@ -160,7 +172,33 @@ export default function NieuweKandidaatPage() {
                                     </select>
                                 </div>
                                 <div>
-                                    <label className="label">Werkervaring *</label>
+                                    <label className="label">Beschikbaar per</label>
+                                    <input
+                                        type="date"
+                                        className="input"
+                                        value={formData.beschikbaarPer}
+                                        onChange={(e) => setFormData({ ...formData, beschikbaarPer: e.target.value })}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="label">Contractvorm *</label>
+                                    <select
+                                        className="input"
+                                        value={formData.contractvorm}
+                                        onChange={(e) => setFormData({ ...formData, contractvorm: e.target.value })}
+                                        required
+                                    >
+                                        <option value="fulltime">Fulltime</option>
+                                        <option value="parttime">Parttime</option>
+                                        <option value="freelance">Freelance</option>
+                                        <option value="flexibel">Flexibel</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                <div>
+                                    <label className="label">Werkervaring (tekst) *</label>
                                     <input
                                         type="text"
                                         className="input"
@@ -170,6 +208,34 @@ export default function NieuweKandidaatPage() {
                                         required
                                     />
                                 </div>
+                                <div>
+                                    <label className="label">Werkervaring (jaren) *</label>
+                                    <input
+                                        type="number"
+                                        className="input"
+                                        placeholder="bijv. 5"
+                                        min="0"
+                                        max="50"
+                                        value={formData.ervaringJaren}
+                                        onChange={(e) => setFormData({ ...formData, ervaringJaren: e.target.value })}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="label">Gewenste functies *</label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    placeholder="Komma-gescheiden, bijv: Developer, Tech Lead, Architect"
+                                    value={formData.gewensteFuncties}
+                                    onChange={(e) => setFormData({ ...formData, gewensteFuncties: e.target.value })}
+                                    required
+                                />
+                                <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.25rem' }}>
+                                    Voer meerdere functies in, gescheiden door komma's
+                                </p>
                             </div>
 
                             <div>
@@ -177,7 +243,7 @@ export default function NieuweKandidaatPage() {
                                 <textarea
                                     className="input"
                                     rows={6}
-                                    placeholder="Beschrijf de kandidaat, zijn/haar kwalificaties, ervaring en sterke punten..."
+                                    placeholder="Beschrijf de kandidaat, kwalificaties, ervaring en sterke punten... (zonder naam voor anonimiteit)"
                                     value={formData.samenvatting}
                                     onChange={(e) => setFormData({ ...formData, samenvatting: e.target.value })}
                                     required

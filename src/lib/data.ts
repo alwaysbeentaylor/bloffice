@@ -64,17 +64,24 @@ export interface Kandidaat {
   bureauId: string;
   bureauNaam: string;
   bureauRating: number;
-  naam: string;
   functie: string;
   categorie: Specialisatie;
   locatie: string;
+  regio: string;
   beschikbaarheid: 'direct' | 'binnen 2 weken' | 'in overleg';
+  beschikbaarPer: string; // datum
+  status: 'beschikbaar' | 'in gesprek' | 'geplaatst';
   ervaring: string;
+  ervaringJaren: number;
+  maxReistijd: number; // in minuten
+  gewensteFuncties: string[];
+  contractvorm: 'fulltime' | 'parttime' | 'freelance' | 'flexibel';
   samenvatting: string;
   uurtarief: number;
   commissieVoorstel: string;
   contactVoorkeur: 'telefoon' | 'email' | 'beide';
   geplaatst: string;
+  laatsteUpdate: string;
   actief: boolean;
 }
 
@@ -668,12 +675,18 @@ export const kandidaten: Kandidaat[] = [
     bureauId: 'b1',
     bureauNaam: 'TechForce Uitzendbureau',
     bureauRating: 4.8,
-    naam: 'Pieter Janssen',
     functie: 'Full Stack Developer',
     categorie: 'ICT',
     locatie: 'Amsterdam',
+    regio: 'Noord-Holland',
     beschikbaarheid: 'direct',
+    beschikbaarPer: '2024-12-29',
+    status: 'beschikbaar',
     ervaring: '6 jaar',
+    ervaringJaren: 6,
+    maxReistijd: 45,
+    gewensteFuncties: ['Full Stack Developer', 'Backend Developer', 'Tech Lead'],
+    contractvorm: 'fulltime',
     samenvatting: `Ervaren Full Stack Developer met sterke kennis van React, Node.js en TypeScript. Heeft gewerkt aan diverse enterprise applicaties in de financiële sector.
 
 Technische skills:
@@ -687,6 +700,7 @@ Zoekt een uitdagende positie bij een innovatief bedrijf.`,
     commissieVoorstel: '18% van eerste 3 maanden',
     contactVoorkeur: 'beide',
     geplaatst: '2024-12-20',
+    laatsteUpdate: '2024-12-28',
     actief: true,
   },
   {
@@ -694,12 +708,18 @@ Zoekt een uitdagende positie bij een innovatief bedrijf.`,
     bureauId: 'b6',
     bureauNaam: 'ZorgSelect',
     bureauRating: 4.9,
-    naam: 'Fatima El Amrani',
     functie: 'Verpleegkundige Niveau 5',
     categorie: 'Zorg',
     locatie: 'Rotterdam',
+    regio: 'Zuid-Holland',
     beschikbaarheid: 'binnen 2 weken',
+    beschikbaarPer: '2025-01-13',
+    status: 'beschikbaar',
     ervaring: '8 jaar',
+    ervaringJaren: 8,
+    maxReistijd: 30,
+    gewensteFuncties: ['Verpleegkundige', 'Teamleider Zorg', 'Wijkverpleegkundige'],
+    contractvorm: 'flexibel',
     samenvatting: `Gediplomeerde verpleegkundige niveau 5 met ruime ervaring in de ouderenzorg en acute zorg. BIG-geregistreerd en in bezit van diverse aanvullende certificaten.
 
 Ervaring met:
@@ -713,6 +733,7 @@ Flexibel inzetbaar en bereid tot avond- en weekenddiensten.`,
     commissieVoorstel: '15% van eerste 3 maanden',
     contactVoorkeur: 'telefoon',
     geplaatst: '2024-12-22',
+    laatsteUpdate: '2024-12-27',
     actief: true,
   },
   {
@@ -720,12 +741,18 @@ Flexibel inzetbaar en bereid tot avond- en weekenddiensten.`,
     bureauId: 'b4',
     bureauNaam: 'LogiPeople',
     bureauRating: 4.3,
-    naam: 'Stefan de Boer',
     functie: 'Supply Chain Manager',
     categorie: 'Logistiek',
     locatie: 'Eindhoven',
+    regio: 'Noord-Brabant',
     beschikbaarheid: 'direct',
+    beschikbaarPer: '2024-12-29',
+    status: 'in gesprek',
     ervaring: '10 jaar',
+    ervaringJaren: 10,
+    maxReistijd: 60,
+    gewensteFuncties: ['Supply Chain Manager', 'Operations Director', 'Logistics Manager'],
+    contractvorm: 'fulltime',
     samenvatting: `Senior Supply Chain Manager met bewezen track record in het optimaliseren van logistieke processen. Ervaring met internationale supply chains en Lean/Six Sigma gecertificeerd.
 
 Competenties:
@@ -737,6 +764,7 @@ Competenties:
     commissieVoorstel: '20% van eerste 2 maanden',
     contactVoorkeur: 'email',
     geplaatst: '2024-12-18',
+    laatsteUpdate: '2024-12-29',
     actief: true,
   },
   {
@@ -744,12 +772,18 @@ Competenties:
     bureauId: 'b3',
     bureauNaam: 'HorecaConnect',
     bureauRating: 4.7,
-    naam: 'Marco Visser',
     functie: 'Executive Chef',
     categorie: 'Horeca',
     locatie: 'Den Haag',
+    regio: 'Zuid-Holland',
     beschikbaarheid: 'in overleg',
+    beschikbaarPer: '2025-02-01',
+    status: 'beschikbaar',
     ervaring: '15 jaar',
+    ervaringJaren: 15,
+    maxReistijd: 45,
+    gewensteFuncties: ['Executive Chef', 'Head Chef', 'Culinair Consultant'],
+    contractvorm: 'fulltime',
     samenvatting: `Creatieve Executive Chef met Michelin-ervaring. Gespecialiseerd in Franse en mediterrane keuken met een moderne twist.
 
 Hoogtepunten:
@@ -761,6 +795,7 @@ Hoogtepunten:
     commissieVoorstel: '22% van eerste 3 maanden',
     contactVoorkeur: 'telefoon',
     geplaatst: '2024-12-15',
+    laatsteUpdate: '2024-12-26',
     actief: true,
   },
   {
@@ -768,12 +803,18 @@ Hoogtepunten:
     bureauId: 'b5',
     bureauNaam: 'BouwKracht Personeelsdiensten',
     bureauRating: 4.6,
-    naam: 'Henk van der Linden',
     functie: 'Projectleider Bouw',
     categorie: 'Bouw',
     locatie: 'Utrecht',
+    regio: 'Utrecht',
     beschikbaarheid: 'binnen 2 weken',
+    beschikbaarPer: '2025-01-10',
+    status: 'beschikbaar',
     ervaring: '12 jaar',
+    ervaringJaren: 12,
+    maxReistijd: 60,
+    gewensteFuncties: ['Projectleider', 'Werkvoorbereider', 'Uitvoerder'],
+    contractvorm: 'fulltime',
     samenvatting: `Ervaren projectleider met expertise in woningbouw en utiliteitsbouw. Sterk in het aansturen van bouwteams en onderaannemers.
 
 Kwalificaties:
@@ -785,6 +826,7 @@ Kwalificaties:
     commissieVoorstel: '18% van eerste 3 maanden',
     contactVoorkeur: 'beide',
     geplaatst: '2024-12-21',
+    laatsteUpdate: '2024-12-28',
     actief: true,
   },
   {
@@ -792,12 +834,18 @@ Kwalificaties:
     bureauId: 'b2',
     bureauNaam: 'SecuriStaff BV',
     bureauRating: 4.5,
-    naam: 'Mohammed Yilmaz',
     functie: 'Security Manager',
     categorie: 'Beveiliging',
     locatie: 'Schiphol',
+    regio: 'Noord-Holland',
     beschikbaarheid: 'direct',
+    beschikbaarPer: '2024-12-29',
+    status: 'beschikbaar',
     ervaring: '9 jaar',
+    ervaringJaren: 9,
+    maxReistijd: 30,
+    gewensteFuncties: ['Security Manager', 'Hoofdbeveiliger', 'Operations Manager'],
+    contractvorm: 'fulltime',
     samenvatting: `Security Manager met uitgebreide ervaring in luchthavenbeveliging en evenementenbeveiliging. Erkend beveiligingsexpert met sterke leidinggevende kwaliteiten.
 
 Certificeringen:
@@ -809,6 +857,7 @@ Certificeringen:
     commissieVoorstel: '15% van eerste 2 maanden',
     contactVoorkeur: 'telefoon',
     geplaatst: '2024-12-23',
+    laatsteUpdate: '2024-12-29',
     actief: true,
   },
   {
@@ -816,12 +865,18 @@ Certificeringen:
     bureauId: 'b7',
     bureauNaam: 'Office Professionals',
     bureauRating: 4.4,
-    naam: 'Linda de Graaf',
     functie: 'Financial Controller',
     categorie: 'Financieel',
     locatie: 'Amsterdam',
+    regio: 'Noord-Holland',
     beschikbaarheid: 'binnen 2 weken',
+    beschikbaarPer: '2025-01-15',
+    status: 'in gesprek',
     ervaring: '7 jaar',
+    ervaringJaren: 7,
+    maxReistijd: 45,
+    gewensteFuncties: ['Financial Controller', 'Business Controller', 'Finance Manager'],
+    contractvorm: 'fulltime',
     samenvatting: `Financial Controller met RA-titel en ervaring in multinationale omgevingen. Sterk in maandafsluitingen, consolidaties en IFRS-rapportage.
 
 Expertise:
@@ -833,6 +888,7 @@ Expertise:
     commissieVoorstel: '20% van eerste 3 maanden',
     contactVoorkeur: 'email',
     geplaatst: '2024-12-19',
+    laatsteUpdate: '2024-12-27',
     actief: true,
   },
   {
@@ -840,12 +896,18 @@ Expertise:
     bureauId: 'b9',
     bureauNaam: 'RetailStaf',
     bureauRating: 4.5,
-    naam: 'Sophie Bakker',
     functie: 'Retail Operations Manager',
     categorie: 'Retail',
     locatie: 'Rotterdam',
+    regio: 'Zuid-Holland',
     beschikbaarheid: 'direct',
+    beschikbaarPer: '2024-12-29',
+    status: 'beschikbaar',
     ervaring: '8 jaar',
+    ervaringJaren: 8,
+    maxReistijd: 45,
+    gewensteFuncties: ['Operations Manager', 'Area Manager', 'Store Manager'],
+    contractvorm: 'fulltime',
     samenvatting: `Retail Operations Manager met ervaring bij grote modeketen. Sterk in het verbeteren van winkelprocessen en aansturen van winkelteams.
 
 Resultaten:
@@ -857,6 +919,7 @@ Resultaten:
     commissieVoorstel: '18% van eerste 2 maanden',
     contactVoorkeur: 'beide',
     geplaatst: '2024-12-24',
+    laatsteUpdate: '2024-12-28',
     actief: true,
   },
   {
@@ -864,12 +927,18 @@ Resultaten:
     bureauId: 'b12',
     bureauNaam: 'TransportTalent',
     bureauRating: 4.4,
-    naam: 'Jan Smits',
     functie: 'Transport Planner',
     categorie: 'Transport',
     locatie: 'Venlo',
+    regio: 'Limburg',
     beschikbaarheid: 'direct',
+    beschikbaarPer: '2024-12-29',
+    status: 'beschikbaar',
     ervaring: '5 jaar',
+    ervaringJaren: 5,
+    maxReistijd: 30,
+    gewensteFuncties: ['Transport Planner', 'Logistiek Planner', 'Dispatcher'],
+    contractvorm: 'flexibel',
     samenvatting: `Transport Planner met ervaring in internationaal wegtransport. Expert in routeoptimalisatie en real-time planning.
 
 Skills:
@@ -881,6 +950,7 @@ Skills:
     commissieVoorstel: '15% van eerste 3 maanden',
     contactVoorkeur: 'telefoon',
     geplaatst: '2024-12-25',
+    laatsteUpdate: '2024-12-29',
     actief: true,
   },
   {
@@ -888,12 +958,18 @@ Skills:
     bureauId: 'b10',
     bureauNaam: 'IndustriePro',
     bureauRating: 4.1,
-    naam: 'Erik Vermeulen',
     functie: 'Productie Manager',
     categorie: 'Industrie',
     locatie: 'Helmond',
+    regio: 'Noord-Brabant',
     beschikbaarheid: 'in overleg',
+    beschikbaarPer: '2025-02-01',
+    status: 'beschikbaar',
     ervaring: '11 jaar',
+    ervaringJaren: 11,
+    maxReistijd: 45,
+    gewensteFuncties: ['Productie Manager', 'Plant Manager', 'Operations Manager'],
+    contractvorm: 'fulltime',
     samenvatting: `Productie Manager met lean manufacturing achtergrond. Ervaring in automotive en metaalindustrie.
 
 Competenties:
@@ -905,6 +981,7 @@ Competenties:
     commissieVoorstel: '20% van eerste 2 maanden',
     contactVoorkeur: 'beide',
     geplaatst: '2024-12-17',
+    laatsteUpdate: '2024-12-25',
     actief: true,
   },
 ];

@@ -259,10 +259,10 @@ export default function ProfielPage() {
                                                     </div>
                                                     <div>
                                                         <div style={{ fontWeight: '500', color: '#1f2937', fontSize: '0.9rem' }}>
-                                                            {k.naam}
+                                                            {k.functie}
                                                         </div>
                                                         <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>
-                                                            {k.functie}
+                                                            {k.categorie} • {k.regio}
                                                         </div>
                                                     </div>
                                                 </div>

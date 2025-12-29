@@ -52,8 +52,8 @@ export default function KandidaatDetailPage({ params }: { params: Promise<{ id: 
                             <User size={32} color="#6b7280" />
                         </div>
                         <div>
-                            <h1 style={{ marginBottom: '0.25rem' }}>{kandidaat.naam}</h1>
-                            <p style={{ color: '#6b7280', fontSize: '1.1rem', margin: 0 }}>{kandidaat.functie}</p>
+                            <h1 style={{ marginBottom: '0.25rem' }}>{kandidaat.functie}</h1>
+                            <p style={{ color: '#6b7280', fontSize: '1.1rem', margin: 0 }}>{kandidaat.categorie} • {kandidaat.regio}</p>
                         </div>
                     </div>
                 </div>
