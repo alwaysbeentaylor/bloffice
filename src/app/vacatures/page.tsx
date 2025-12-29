@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { MapPin, Euro, Building2, Filter, Plus } from 'lucide-react';
+import { MapPin, Euro, Building2, Filter, Plus, Briefcase } from 'lucide-react';
 import { vacatures, specialisaties, locaties } from '@/lib/data';
 import Rating from '@/components/Rating';
 
